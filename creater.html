@@ -6,42 +6,142 @@
       #map { height: 100%; }
       #floating-panel {
   position: absolute;
-  top: 10px;
-  left: 25%;
+  top: 75px;
+  left: 0%;
   z-index: 5;
-  background-color: #fff;
+  background-color: transparent;
   padding: 5px;
-  border: 1px solid #999;
+  border: 0px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+        #floating-panel-create {
+  position: absolute;
+  top: 115px;
+  left: 0px;
+  z-index: 5;
+  background-color: transparent;
+  padding: 5px;
+  border: 0px solid #999;
   text-align: center;
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
   padding-left: 10px;
 }
         
-
-    </style>
-  </head>
-  <body>
-      <div id="floating-panel" style= "width: 100vh; margin:0 auto">
-      <input onclick="clearMarkers();" type=button value="Hide Markers">
-      <input onclick="showMarkers();" type=button value="Show All Markers">
-      <input onclick="deleteMarkers();" type=button value="Delete Markers">
-    <input id = "erstellen" onclick="createChase()" type= button value ="Create PaperChase!" style="margin-left: 5px; margin-top: 5px; float: right;">
-    </div>
-      <div id="box" style="overflow:auto; width:500px;height:100vh;border:1px solid #000;background-color: #fff;display: none"><font size=6>
-          
-          <div id= "progress" style="margin-left: 5px">Progress:  1/4</div>
-          </br>
-          <div id= "ratsel" style="margin-left: 5px">TEST</div>
-          </br>
-          <div id="debug1" style="margin-left: 5px">TEST</div>
-          </br>
-    
-      </font>
-
+      .floating-panel-faq {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 5;
+  background-color: transparent;
+  padding: 5px;
+  border: 0px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+        
+.floating-panel-faq-white{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 0px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+        .sweet-alert{
+         width: 600px !important;  
+            border: :0px solid transparent !important;
+     border-radius: 0px !important;
+        }
+    .btn-control{
+     border: :0px solid transparent !important;
+     border-radius: 0px !important;
+     background: #fff !important;
+     font-size: 17px !important;
+        outline: none !important;
+    }
+    .btn-faq{
+    border: :0px solid transparent !important ;
+     border-radius: 50px !important;
+     background: #fff !important;
+     font-size: 17px !important;
+        outline: none !important;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+    -webkit-transition:width 0.3s ease-in-out, height 0.3s ease-in-out;
+    width:35.7188px;
+    height: 35.7188px;
+    text-align: center;
+        display:inline-block;
+     overflow: hidden !important;
+        padding-top: 3px;
+        padding-left: 3px;
+        word-wrap: break-word;
+    }
+    .btn-faq:hover{
+    border: :0px solid transparent !important;
+     border-radius: 50px !important;
+     background: #fff !important;
+     font-size: 17px !important;
+     outline: none !important;
+     width:300px;
+     height: 400px;
+        word-wrap: break-word;
+   
+    }
+    .btn-create{
+    border: :0px solid transparent !important;
+     border-radius: 0px !important;
+     background: #fff !important;
+     font-size: 17px !important;
+        outline: none !important;
+    }
         
 
-      </div>
+    </style>
+      <script src="jquery-2.2.3.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optionales Theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="https://use.fontawesome.com/e35b3c8a4a.js"></script>
+      <link rel="stylesheet" href="sweetalert.css">
+      <script src="sweetalert.min.js"></script>
+  </head>
+  <body>
+      <div id="floating-panel-faq" class="floating-panel-faq">
+      <div class="btn-faq" id="faq"><i class="fa fa-question fa-4" aria-hidden="true"></i>  <br>
+      <b>How to Play:</b><br>
+          <font size=2>Choose different locations on the map and set them by clicking. By clicking the marker you can set a hint, so people can guess which locations you chose. There is no limit on how many markers you can set. On the left you can hide/show your markers or start all over by deleting them. Once you are done, click the "Create PaperChase" button to get your individual link to share!<br></font>
+          <b>Enjoy your PaperChase!</b>
+      </div></div>
+    <div id="floating-panel">
+      <button type="button" class="btn btn-default btn-control " onclick="clearMarkers();" ><i class="fa fa-eye-slash fa-4" aria-hidden="true"></i></button>
+      
+      <button type="button" class="btn btn-default btn-control" onclick="showMarkers();" ><i class="fa fa-map-marker fa-4" aria-hidden="true"></i></button>
+      <button type="button" class="btn btn-default btn-control" onclick="deleteMarkers();" ><i class="fa fa-trash fa-4" aria-hidden="true"></i></button></div>
+     <div id="floating-panel-create">     
+    <button id = "erstellen" onclick="createChase()" class="btn btn-default btn-create" value ="Create PaperChase!" >Create PaperChase!</div>
+     <div id="box" style="display:none"><font size=6>
+          <div id= "progress">Progress:  1/4</div>
+          </br>
+          <div id= "ratsel">TEST</div>
+          </br>
+          <div id="debug1">TEST</div>
+      </font>
+      
+      </div></div></div>
 
 
 
@@ -59,7 +159,7 @@ var filename1;
 var anz=0;
 var count=0;
 var button;
-var link="http://localhost:8080/paperchase/index.html?chase=";
+var link="http://paperchase.me/chase/";
 var debug1;
 var pos1, pos2, pos3, pos4, pos5;
 var text1, text2, text3, text4, text5;
@@ -122,6 +222,15 @@ function createChase(){
     button.value = "TETSTSTET";
     document.getElementById("progress").innerHTML=link;
     console.log(link);
+    swal({
+        title: 'Paperchase created!',
+        type: 'success',
+        text: 'Your Paperchase has been created at\n'+link,
+        showCloseButton: true,
+        width: 600
+        
+    });
+    
 }
         
         
@@ -134,7 +243,7 @@ function initMap() {
     filename1 = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     link+=filename1;
     filename1+=".txt";
-    window.alert(filename1);
+    //window.alert(filename1);
     var myBox = document.getElementById('box');
 map.controls[google.maps.ControlPosition.TOP_RIGHT].push(myBox);
 ratsel = document.getElementById('ratsel');
@@ -311,7 +420,14 @@ function createInfoBox(div, input, br){
     ;
        
 }
+$(document).ready(function(){
+    $("#faq").click(function(){
+        //$("#floating-panel-faq").toggleClass("floating-panel-faq-white");
 
+        //$("#faq-panel").toggle();
+    });
+    
+});
      
 
     </script>

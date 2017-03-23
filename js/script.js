@@ -2,15 +2,15 @@ $(document).ready(function(){
 	
 	$('#erstellen').click(function(e){
         var i=0;
-        content1=markers[0].position.lat()+"\n"+markers[0].position.lng()+"\n"+inputs[0].value
+        content1=inputs[0].value+"\n"+markers[0].position.lat()+"\n"+markers[0].position.lng();
         for(i=1;i<count;i++){
-            content1=content1+"\n"+markers[i].position.lat()+"\n"+markers[i].position.lng()+"\n"+inputs[i].value
+            content1=content1+"\n"+inputs[i].value+"\n"+markers[i].position.lat()+"\n"+markers[i].position.lng();
         }
 
 		$.generateFile({
 			filename	: filename1,
 			content 	:  count+ "\n"+content1 ,
-			script		: 'http://localhost:8080/paperchase/createFile.php'
+			script		: '/createFile.php'
 		});
 		
 		e.preventDefault();
